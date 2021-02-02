@@ -75,7 +75,7 @@ class Iseed
         }
 
         // Get the data
-        $data = $this->getData($table, $max, $exclude, $orderBy, $direction);
+        $data = $this->getData($table, $max, $exclude, $orderBy, $direction, $offset);
 
         // Repack the data
         $dataArray = $this->repackSeedData($data);
@@ -129,6 +129,15 @@ class Iseed
      * Get the Data
      * @param  string $table
      * @return Array
+     */
+    /**
+     * @param string $table
+     * @param int $max
+     * @param null $exclude
+     * @param null $orderBy
+     * @param string $direction
+     * @param int $offset
+     * @return array
      */
     public function getData($table, $max, $exclude = null, $orderBy = null, $direction = 'ASC', $offset = 0)
     {
