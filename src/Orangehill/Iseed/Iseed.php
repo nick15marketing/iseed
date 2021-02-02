@@ -130,7 +130,7 @@ class Iseed
      * @param  string $table
      * @return Array
      */
-    public function getData($table, $max, $exclude = null, $orderBy = null, $direction = 'ASC')
+    public function getData($table, $max, $exclude = null, $orderBy = null, $direction = 'ASC', $offset = 0)
     {
         $result = \DB::connection($this->databaseName)->table($table);
 
@@ -141,6 +141,10 @@ class Iseed
 
         if($orderBy) {
             $result = $result->orderBy($orderBy, $direction);
+        }
+
+        if ($offset) {
+            $result = $result->offset($offset);
         }
 
         if ($max) {

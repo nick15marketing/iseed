@@ -108,6 +108,14 @@ Example:
 php artisan iseed users --max=10
 ```
 
+### offset
+Optional parameter which defines the number of rows to skip before fetching results. In case of multiple tables, offset will be applied to all of them.
+
+Example:
+```
+php artisan iseed users --offset=10
+```
+
 ### chunksize
 Optional parameter which defines the size of data chunks for each insert query.
 

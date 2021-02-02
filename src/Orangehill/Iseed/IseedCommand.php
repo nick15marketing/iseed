@@ -56,6 +56,7 @@ class IseedCommand extends Command
 
         $tables = explode(",", $this->argument('tables'));
         $max = intval($this->option('max'));
+        $offset = intval($this->option('offset'));
         $chunkSize = intval($this->option('chunksize'));
         $exclude = explode(",", $this->option('exclude'));
         $prerunEvents = explode(",", $this->option('prerun'));
@@ -107,7 +108,8 @@ class IseedCommand extends Command
                         $dumpAuto,
                         $indexed,
                         $orderBy,
-                        $direction
+                        $direction,
+                        $offset
                     ),
                     $table
                 );
@@ -162,6 +164,7 @@ class IseedCommand extends Command
             array('force', null, InputOption::VALUE_NONE, 'force overwrite of all existing seed classes', null),
             array('database', null, InputOption::VALUE_OPTIONAL, 'database connection', \Config::get('database.default')),
             array('max', null, InputOption::VALUE_OPTIONAL, 'max number of rows', null),
+            array('offset', null, InputOption::VALUE_OPTIONAL, 'offset start of rows', null),
             array('chunksize', null, InputOption::VALUE_OPTIONAL, 'size of data chunks for each insert query', null),
             array('exclude', null, InputOption::VALUE_OPTIONAL, 'exclude columns', null),
             array('prerun', null, InputOption::VALUE_OPTIONAL, 'prerun event name', null),
